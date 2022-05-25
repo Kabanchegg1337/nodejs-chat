@@ -1,7 +1,6 @@
 :root {
     --accent-color: #AAC9F8;
 }
-
 .container {
     height: 100vh;
     display: flex;
@@ -79,6 +78,7 @@
     padding: 2rem 1rem;
     overflow-y: auto;
     overflow-x: hidden;
+    scroll-behavior: smooth;
     .message {
         background: var(--accent-color);
         padding: 0.5rem 1rem;
