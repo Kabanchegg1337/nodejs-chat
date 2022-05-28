@@ -71,6 +71,7 @@
             background: var(--second-accent);
             border-radius: 2px;
             padding: 0.3rem 0.5rem;
+            color: var(--text-color);
             &[type=submit] {
                 width: 30%;
                 margin-left: auto;
@@ -108,10 +109,14 @@
                 color: rgba(255,255,255, 0.4)
             }
             .badge {
-                border-bottom: 1px solid var(--moderator-color);
+                border-bottom: 1px solid var(--admin-color);
                 margin-left: 1rem;
                 font-size: 0.6rem;
-                color: var(--moderator-color);
+                color: var(--admin-color);
+                &.moderator {
+                    color: var(--moderator-color);
+                    border-bottom: 1px solid var(--moderator-color);
+                }
             }
         }
         .content {
