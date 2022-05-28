@@ -1,8 +1,9 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addMessage } from "../features/chat/messagesSlice";
 
-export default function InputForm() {
+export default function InputForm({socket}) {
+  const user = useSelector(state => state.user);
   const [text, setText] = React.useState("");
   const dispatch = useDispatch();
 
@@ -12,10 +13,17 @@ export default function InputForm() {
     const message = {
       id: 1,
       text: text,
+      sender: user
     };
-    dispatch(addMessage(message));
+    
+    socket.emit('message', message, response => {
+      if (response.status != 200){
+        return alert(response.message);
+      }
+    });
     setText("");
   };
+
   return (
     <div className="input_form">
       <form onSubmit={sendMessage}>

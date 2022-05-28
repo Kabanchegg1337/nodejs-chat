@@ -13,7 +13,9 @@
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-redux": "^8.0.2"
+    "react-redux": "^8.0.2",
+    "socket.io": "^4.5.1",
+    "socket.io-client": "^4.5.1"
   },
   "devDependencies": {
     "eslint": "8.16.0",

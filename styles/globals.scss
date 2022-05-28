@@ -1,5 +1,10 @@
 :root {
-    --accent-color: #AAC9F8;
+    --main-color: #242424;
+    --accent-color: #424242;
+    --second-accent: #383838;
+    --text-color: #fff;
+    --admin-color: #006849;
+    --moderator-color: rgba(7, 133, 0, 0.749);
 }
 .container {
     height: 100vh;
@@ -7,15 +12,17 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    background: var(--main-color);
 }
 .header {
     width: 45%;
-    background: #f1f1f1;
+    background: var(--accent-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     flex-direction: row;
     padding: 1rem 2rem;
+    border-radius: 0 0 2px 2px;
     .user {
         display: flex;
         flex-direction: row;
@@ -23,11 +30,12 @@
         justify-content: center;
         margin-left: auto;
         span {
-            font-size: 1rem;
+            font-size: 1.2rem;
             margin-right: 0.8rem;
+            color: var(--text-color);
         }
         .icon {
-            background: #AAC9F8;
+            background: var(--second-accent);
             width: 2rem;
             height: 2rem;
             border-radius: 50%;
@@ -37,12 +45,13 @@
 .input_form {
     margin-top: auto;
     width: 45%;
-    background: #f1f1f1;
+    background: var(--accent-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     flex-direction: row;
     padding: 1rem 2rem;
+    border-radius: 2px 2px 0 0;
     form {
         width: 100%;
         display: flex;
@@ -55,13 +64,15 @@
             outline: none;
             width: 60%;
             height: 2rem;
-            background: var(--accent-color);
-            border-radius: 10px;
+            background: var(--second-accent);
+            border-radius: 2px;
             padding: 0.3rem 0.5rem;
             &[type=submit] {
                 width: 30%;
                 margin-left: auto;
                 cursor: pointer;
+                color: var(--text-color);
+                font-weight: 600;
             }
         }
     }
@@ -72,22 +83,80 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    background: #fdfafa;
     width: 45%;
     height: 100%;
     padding: 2rem 1rem;
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: visible;
     scroll-behavior: smooth;
+    background: #2b2a2a;
     .message {
-        background: var(--accent-color);
-        padding: 0.5rem 1rem;
         margin-bottom: 1rem;
         border-radius: 3px;
         max-width: 60%;
-        &:nth-child(2n){
-            margin-left: auto;
-            background: #e3e3e3;
+        .user {
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            .name {
+                font-size: 0.8rem;
+                color: rgba(255,255,255, 0.4)
+            }
+            .badge {
+                border-bottom: 1px solid var(--moderator-color);
+                margin-left: 1rem;
+                font-size: 0.6rem;
+                color: var(--moderator-color);
+            }
         }
+        .content {
+            padding: 0.5rem 1rem;
+            color: var(--text-color);
+            background: var(--accent-color);
+        }
+        &.owner{
+            margin-left: auto;
+            background: var(--second-accent);
+            .buttons {
+                display: none;
+            }
+        }
+        .buttons {
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translateX(100%) translateY(-50%);
+            display: flex;
+            flex-direction: row;
+            opacity: 0;
+            transition: 0.3s ease;
+            button {
+                background:var(--main-color);
+                border: none;
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &:first-child {
+                    margin-right: 0.5rem;
+                }
+                img {
+                    width: 80%;
+                    height: 80%;
+                    object-fit: contain;
+                }
+            }
+        }
+        &:hover {
+            .buttons {
+                opacity: 1;
+            }
+        }
+        position: relative;
     }
+    
 }
