@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../features/chat/userSlice";
 import LoginForm from "../components/LoginForm";
 
-const socket = io("http://localhost:3001/");
+const socket = io(":3001");
 
 export default function Home() {
   const user = useSelector(state => state.user);

@@ -16,7 +16,7 @@ export default class LoginForm extends Component {
 
   render() {
     return (
-      <div className='popup login_form'>
+      <div className='login_form'>
           <form>
             <input placeholder='Имя пользователя' value={this.state.login} onChange={e => this.setState({login:e.target.value})} />
             <input type='submit' value="Войти" onClick={this.handleSubmit} />
